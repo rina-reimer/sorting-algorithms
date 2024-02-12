@@ -11,6 +11,10 @@ plugins {
     id 'application'
 }
 
+configurations {
+    asciidoclet
+}
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -22,6 +26,7 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
+    asciidoclet 'org.asciidoctor:asciidoclet:1.+'
 }
 
 application {
@@ -33,4 +38,17 @@ application {
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+tasks.register('configureJavadoc') {
+    doLast {
+        javadoc {
+            options.doclet = 'org.asciidoctor.Asciidoclet'
+            options.docletpath = configurations.asciidoclet.files.toList()
+        }
+    }
+}
+
+javadoc {
+    dependsOn configureJavadoc
 }

@@ -3,5 +3,9 @@
     "app/build/classes",
     "app/src/main/java/sorting/algorithms"
   ],
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "ocaml.sandbox": {
+    "kind": "opam",
+    "switch": "default"
+  }
 }
