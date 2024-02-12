@@ -1,0 +1,7 @@
+{
+  "java.project.sourcePaths": [
+    "app/build/classes",
+    "app/src/main/java/sorting/algorithms"
+  ],
+  "java.configuration.updateBuildConfiguration": "interactive"
+}
